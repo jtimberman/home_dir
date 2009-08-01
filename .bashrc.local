@@ -1,0 +1,32 @@
+# local settings for primary workstation.
+
+export RUBYLIB="~/lib/ruby"
+export MANPATH="$MANPATH:/opt/local/man"
+export JAVA_HOME="/Library/Java/Home"
+export EDITOR="/usr/bin/env mvim"
+
+alias newex="~/bin/newscript.rb"
+alias pop="cd ~/Documents/projects/opscode"
+alias cdchef="cd ~/Documents/projects/opscode/chef"
+alias cdcook="cd ~/Documents/projects/opscode/cookbooks"
+alias cdohai="cd ~/Documents/projects/opscode/ohai"
+alias wkrep="~/bin/wkrep.rb"
+
+alias gitp="git log -p"
+alias gitf="git log --pretty=format:'%Cgreen%ai %Cblue%h %Creset%s'"
+
+. ~/etc/bash_completion.d/*
+. ~/.ec2/opscode-config
+
+function erbp {
+    if [ `which erb` ]
+    then 
+        erb=`which erb`
+    elif [ `which erb1.8` ]
+    then
+        erb=`which erb1.8`
+    else
+        echo "erb binary not found."
+    fi
+    $erb -x -T '-' $1 | ruby -c
+}

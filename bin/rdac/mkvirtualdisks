@@ -1,0 +1,12 @@
+#!/bin/bash
+SMcli $storage_array -c 'show storageArray summary;' -o /tmp/${storage_array}-summary
+numencs=`awk '/enclosures:/ {print $NF}' /tmp/${storage_array}-summary`
+for encs in `seq 0 $numencs`
+do
+    echo -n "'create virtualDisk physicalDisks=("
+    for slot in `seq 0 13`
+    do
+        echo -n "$encs,$slot "
+    done
+    echo ") raidLevel=5 userLabel=\"${host}-enc${encs}-lun0\" capacity=35GB;'"
+done
