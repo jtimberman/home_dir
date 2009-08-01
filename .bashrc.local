@@ -1,3 +1,5 @@
+# Author: Joshua Timberman <joshua@opscode.com>
+#
 # local settings for primary workstation.
 
 export RUBYLIB="~/lib/ruby"
