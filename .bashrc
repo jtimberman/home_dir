@@ -1,4 +1,5 @@
-# Joshua Timberman's .bashrc / .bash_profile for Linux & Unix systems.
+# Author: Joshua Timberman <joshua@opscode.com>
+
 # 
 #############################################################################
 # Options and settings
